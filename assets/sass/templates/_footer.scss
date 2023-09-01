@@ -1,0 +1,35 @@
+.footer {
+	background: var(--black, #1D1D1D);
+}
+.section_in {
+}
+.footer_main {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 4.1rem 0;
+}
+.footer_left {
+}
+.footer_policy {
+	A {
+		color: $white;
+	}
+}
+.footer_right {
+	display: flex;
+	align-items: center;
+}
+.footer_copyright {
+	color: $white;
+	display: flex;
+	align-items: center;
+	margin-right: 3rem;
+}
+.icon {
+}
+.icon-copyright {
+	margin-right: .5rem;
+}
+.footer_arkada {
+}

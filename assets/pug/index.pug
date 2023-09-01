@@ -1,0 +1,304 @@
+extends _layout
+
+block vars
+	- array = {body_class:'', layout_mod:'', sub_keywords:'', title_inner:'HOME'}
+block content_block
+	section.hero 
+		.section_in 
+			.hero_main
+				.hero_main_top 
+					.hero_head
+						h1 ДЕМОНТАЖ КВАРТИР, ЗДАНИЙ И ПОМЕЩЕНИЙ
+					.hero_info 
+						ul 
+							li
+								.hero_info_img 
+									+icon('hammer')
+								p Демонтаж под ключ
+							li
+								.hero_info_img 
+									+icon('key')
+								p Демонтаж квартир
+							li
+								.hero_info_img 
+									+icon('store')
+								p Демонтаж коммерческих помещений
+							li
+								.hero_info_img 
+									+icon('bricks')
+								p Демонтаж полов, стен и сооружений
+					.hero_txt_w 
+						.hero_txt
+							p Пришлите фотографию объекта<br> прямо сейчас и мы сделаем расчет по фото:
+						.hero_txt_btn 
+							.hero_txt_btn_img
+								img(src="i/arrowbtn.png", alt="")
+							button(type="button") 
+								+icon('camera')
+								p Расчет по фото
+	section.hero_main_bottom
+		.section_in
+			.hero_main_bottom_info
+				.hero_main_bottom_list
+					ul 
+						li 
+							.hero_main_bottom_img 
+								+icon('tape-measure')
+							.hero_main_bottom_info
+								p Бесплатный выезд оценщика, в любой район города
+						li 
+							.hero_main_bottom_img 
+								+icon('car')
+							.hero_main_bottom_info
+								p Готовы выехать на объект и приступить в день обращения
+						li 
+							.hero_main_bottom_img 
+								+icon('sack')
+							.hero_main_bottom_info
+								p Строительные мешки в подарок!
+						li 
+							.hero_main_bottom_img 
+								+icon('file')
+							.hero_main_bottom_info
+								p Заключаем договор
+	section.services 
+		.section_in 
+			.services_main 
+				.services_main_top
+					.services_head 
+						h2 Демонтируем любой объект в помещении:
+					.services_list 
+						ul 
+							li
+								.services_list_btn
+									button(type="button") 
+										.services_list_head 
+											p Стены
+										.services_list_img 
+											img(src="i/wall.png", alt="")
+								.services_list_bottom 
+									.services_bottom_price 
+										span от 300 ₽/м2
+									.services_bottom_img
+										+icon('arrow')
+							li
+								.services_list_btn
+									button(type="button") 
+										.services_list_head 
+											p Плитка
+										.services_list_img 
+											img(src="i/tile.png", alt="")
+								.services_list_bottom 
+									.services_bottom_price 
+										span от 150 ₽/м2
+									.services_bottom_img
+										+icon('arrow')
+							li
+								.services_list_btn
+									button(type="button") 
+										.services_list_head 
+											p Стяжки
+										.services_list_img 
+											img(src="i/coupler.png", alt="")
+								.services_list_bottom 
+									.services_bottom_price 
+										span от 300 ₽/м2
+									.services_bottom_img
+										+icon('arrow')
+					.services_head 
+						h2 А также отдельные сооружения:
+					.services_list 
+						ul 
+							li
+								.services_list_btn
+									button(type="button") 
+										.services_list_head 
+											p Сараи
+										.services_list_img 
+											img(src="i/barn.png", alt="")
+								.services_list_bottom 
+									.services_bottom_price 
+										span Цена после замера
+									.services_bottom_img
+										+icon('arrow')
+							li
+								.services_list_btn
+									button(type="button") 
+										.services_list_head 
+											p Бани
+										.services_list_img 
+											img(src="i/bath.png", alt="")
+								.services_list_bottom 
+									.services_bottom_price 
+										span Цена после замера
+									.services_bottom_img
+										+icon('arrow')
+							li
+								.services_list_btn
+									button(type="button") 
+										.services_list_head 
+											p Дома
+											span одноэтажные частные
+										.services_list_img 
+											img(src="i/home.png", alt="")
+								.services_list_bottom 
+									.services_bottom_price 
+										span Цена после замера
+									.services_bottom_img
+										+icon('arrow')
+				.services_main_bottom 
+					.services_item_head
+						p Посмотреть полный прайс-лист
+						+icon('arrowbottom')
+					.services_item_bottom 
+						.default-table 
+							table 
+								thead
+									tr
+										th
+											.name 
+												p Наименование
+										th 
+											.price 
+												p Цена за ед.
+										th 
+											.dimension
+												p Ед. изм.
+								-for (i = 0; i < 58; i++)
+										tr 
+											th
+												.name
+													button(type="button") Демонтаж стен из кирпича
+											th
+												.price
+													p 300 ₽
+											th
+												.dimension 
+													p м2
+	section.about 
+		.section_in 
+			.about_main 
+				.about_left
+					.about_left_head
+						h2 КТО МЫ? УЗНАЙТЕ БОЛЬШЕ О НАС
+					.about_left_info 
+						.about_left_info_first
+							p Мы частная бригада, которая занимается демонтажом квартир, зданий и помещений. Сломаем и вывезем все что нужно!
+						.about_left_info_second
+							p Наши <span>цены низкие</span> и договорные, все зависит от объема работ.
+						.about_left_info_third
+							p Пришлите фотографию объекта прямо сейчас и мы сделаем расчет по фото:
+					.about_left_btn 
+						button(type="button") 
+								+icon('camera')
+								p Расчет по фото
+				.about_right 
+					img(src="i/about.png", alt="")
+	section.advantages
+		.section_in 
+			.advantages_main 
+				.advantages_left 
+					.advantages_left_head 
+						h2 У нас есть<br> много преимуществ:
+					.advantages_left_img 
+						img(src="i/aboutwall.png", alt="")
+				.advantages_right 
+					.advantages_right_list
+						ul 
+							li 
+								.advantages_icon 
+									+icon('calendar')
+								.advantages_txt 
+									p Работаем без выходных и праздников
+							li 
+								.advantages_icon 
+									+icon('drill')
+								.advantages_txt 
+									p В наличии весь необxодимый профессиональный инcтpумeнт!
+							li 
+								.advantages_icon 
+									+icon('like')
+								.advantages_txt 
+									p Работаем оперативно, качественно!
+							li 
+								.advantages_icon 
+									+icon('card')
+								.advantages_txt 
+									p Наличный так и безналичный расчёт!
+							li 
+								.advantages_icon 
+									+icon('cleaning')
+								.advantages_txt 
+									p Сухая и влажная уборка на каждом заказе						
+	section.sale 
+		.section_in 
+			.sale_main 
+				p %
+				.sale_left
+					.sale_head 
+						h2 Постоянные скидки<br> для пенсионеров и инвалидов
+					.sale_txt 
+						p Скидка на каждого второго грузчика, а также каждый второй час бесплатно
+	section.know
+		.section_in 
+			.know_main 
+				.know_head 
+					h2 УЗНАЙТЕ, КАК ПРОХОДИТ ДЕМОНТАЖ
+				.know_pagination 
+					.swiper-pagination
+				.know_info_slider 
+					.know_slider
+						.swiper-wrapper
+							-for(i = 0; i < 5; i++)
+								.swiper-slide.slide_custom
+									.swiper-slide_left
+										.swiper-slide_img 
+											img(src="i/know1.png", alt="")
+									.swiper-slide_right
+										.swiper-slide_step 
+											p Шаг 1:
+										.swiper-slide_txt 
+											p Вы заказываете у нас демонтаж. Замерщик выезжает, составляет смету и озвучивает сроки демонтажа.
+	section.instrument 
+		.section_in 
+			.inctrument_main 
+				.instrument_head 
+					h2 С какими инструментами мы работаем?
+				.instrument_list 
+					ul 
+						-for (i = 0; i < 4; i++) 
+							li 
+								.instument_list_left 
+									.instrument_list_head 
+										p Отбойные молотки высокой мощности
+									.instrument_list_info
+										p Инструменты мощностью 2200Вт.<br> Позволяют проводить работы быстро и качественно
+								.instrument_list_right
+									img(src="i/instrument1.png", alt="")
+	section.contacts 
+		.section_in 
+			.contacts_main
+				.contacts_main_left
+					.contacts_head 
+						h2 КОНТАКТЫ ДЛЯ СВЯЗИ:
+					.contacts_list 
+						.contacts_mobil 
+							.contacts_mobil_img
+								+icon('phone') 
+							a(href="#") +7 (993) 645-71-14
+						.contacts_mail 
+							.contacts_mail_img
+								+icon('mail') 
+							a(href="#") maks.ryabchuk.89@mail.ru
+					.contacts_info 
+						p Или оставьте нам заявку и мы сами перезвоним вам:
+					.contacts_btn 
+						button(type="button") Оставить заявку
+				.contacts_main_right 
+					img(src="i/men.png", alt="")
+
+
+
+
+
+

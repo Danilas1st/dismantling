@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/dist/svg4everybody.js"></script>
+		<script>svg4everybody();</script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+
+<!--
+
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-arrow-dims { width: 35px; height: 35px; }
+	.svg-arrowbottom-dims { width: 29px; height: 29px; }
+	.svg-bricks-dims { width: 24px; height: 24px; }
+	.svg-calendar-dims { width: 32px; height: 32px; }
+	.svg-call-dims { width: 28px; height: 28px; }
+	.svg-camera-dims { width: 40px; height: 40px; }
+	.svg-car-dims { width: 60px; height: 60px; }
+	.svg-card-dims { width: 40px; height: 40px; }
+	.svg-cleaning-dims { width: 34px; height: 41px; }
+	.svg-close-dims { width: 25px; height: 25px; }
+	.svg-copyright-dims { width: 12px; height: 12px; }
+	.svg-drill-dims { width: 38px; height: 38px; }
+	.svg-file-dims { width: 60px; height: 60px; }
+	.svg-hammer-dims { width: 22px; height: 20px; }
+	.svg-key-dims { width: 18px; height: 18px; }
+	.svg-like-dims { width: 36px; height: 36px; }
+	.svg-mail-dims { width: 30px; height: 30px; }
+	.svg-phone-dims { width: 30px; height: 30px; }
+	.svg-sack-dims { width: 50px; height: 50px; }
+	.svg-store-dims { width: 24px; height: 24px; }
+	.svg-tape-measure-dims { width: 60px; height: 60px; }
+	.svg-wa-dims { width: 28px; height: 28px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+
+<!--
+
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/svg-sprite/svg-sprite/blob/1.5.x/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol viewBox="0 0 35 35" id="arrow" xmlns="http://www.w3.org/2000/svg"><path d="M17.538 21.662l2.062 2.064 6.188-6.188L19.6 11.35l-2.062 2.062 2.666 2.668H9.212v2.916h10.992l-2.666 2.666z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M7.292 1.458a5.833 5.833 0 00-5.834 5.834v20.416a5.833 5.833 0 005.834 5.834h20.416a5.834 5.834 0 005.834-5.834V7.292a5.834 5.834 0 00-5.834-5.834H7.292zM4.375 7.292v20.416a2.917 2.917 0 002.917 2.917h20.416a2.917 2.917 0 002.917-2.917V7.292a2.917 2.917 0 00-2.917-2.917H7.292a2.917 2.917 0 00-2.917 2.917z"/></symbol>
+		<symbol viewBox="0 0 29 29" id="arrowbottom" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.458 10.875a1.209 1.209 0 00-.854 2.063l6.042 6.041a1.208 1.208 0 001.708 0l6.042-6.041a1.21 1.21 0 00-.854-2.063H8.458z"/></symbol>
+		<symbol viewBox="0 0 24 24" id="bricks" xmlns="http://www.w3.org/2000/svg"><path d="M3 16h9v5H3v-5zm-1-6h6v5H2v-5zm7 0h6v5H9v-5zm7 0h6v5h-6v-5zm-3 6h8v5h-8v-5zM3 4h8v5H3V4zm9 0h9v5h-9V4z"/></symbol>
+		<symbol viewBox="0 0 32 32" id="calendar" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#dclip0_66_146)"><path d="M8.615 0c-.678 0-1.23.553-1.23 1.23v3.693a1.232 1.232 0 002.461 0V1.231C9.846.553 9.294 0 8.616 0zm14.77 0c-.679 0-1.231.553-1.231 1.23v3.693a1.232 1.232 0 002.461 0V1.231c0-.678-.552-1.231-1.23-1.231zM3.692 2.462A3.694 3.694 0 000 6.154v22.154A3.694 3.694 0 003.692 32h24.616A3.694 3.694 0 0032 28.308V6.154a3.694 3.694 0 00-3.692-3.692h-2.462v2.461a2.462 2.462 0 01-4.923 0V2.462h-9.846v2.461a2.462 2.462 0 11-4.923 0V2.462H3.692zm-1.23 8.615h27.076v17.23c0 .679-.552 1.232-1.23 1.232H3.692c-.678 0-1.23-.553-1.23-1.231V11.077zm8.615 3.692v2.847H17l-4.655 9.423h4.27l4.269-10.386V14.77h-9.808z"/></g><defs><clipPath id="dclip0_66_146"><path d="M0 0h32v32H0z"/></clipPath></defs></symbol>
+		<symbol viewBox="0 0 28 28" id="call" xmlns="http://www.w3.org/2000/svg"><path d="M28 19.45v6.84c0 .476-.192.931-.534 1.262a1.582 1.582 0 01-1.17.446 27.438 27.438 0 01-18.257-8.036A27.438 27.438 0 01.001 1.703 1.58 1.58 0 01.448.533 1.76 1.76 0 011.71 0h6.84a1.69 1.69 0 011.662 1.442l.904 6.324a1.688 1.688 0 01-.475 1.425l-2.683 2.683a.564.564 0 00-.094.683 22.965 22.965 0 007.578 7.578c.223.129.504.09.684-.094l2.682-2.682a1.686 1.686 0 011.426-.475l6.324.903A1.689 1.689 0 0128 19.45z"/></symbol>
+		<symbol viewBox="0 0 40 40" id="camera" xmlns="http://www.w3.org/2000/svg"><path d="M23.533 6.667L26.583 10h6.75v20H6.667V10h6.75l3.05-3.333h7.066zM25 3.333H15l-3.05 3.334H6.667A3.343 3.343 0 003.333 10v20c0 1.833 1.5 3.333 3.334 3.333h26.666c1.834 0 3.334-1.5 3.334-3.333V10c0-1.833-1.5-3.333-3.334-3.333H28.05L25 3.333zM20 15c2.75 0 5 2.25 5 5s-2.25 5-5 5-5-2.25-5-5 2.25-5 5-5zm0-3.333A8.336 8.336 0 0011.667 20c0 4.6 3.733 8.333 8.333 8.333S28.333 24.6 28.333 20 24.6 11.667 20 11.667z"/></symbol>
+		<symbol viewBox="0 0 60 60" id="car" xmlns="http://www.w3.org/2000/svg"><path d="M55.36 27.408L50.4 22.8 46 14a4.2 4.2 0 00-3.6-2H17.6a4.2 4.2 0 00-3.6 2l-4.4 8.8-4.96 4.608A2 2 0 004 28.876V46a2 2 0 002 2h8c.8 0 2-.8 2-1.6V44h28v2c0 .8.8 2 1.6 2H54a2 2 0 002-2V28.876a2 2 0 00-.64-1.468zM18 16h24l4 8H14l4-8zm2 18.4c0 .8-1.2 1.6-2 1.6H9.6C8.8 36 8 34.8 8 34v-4.4c.4-1.2 1.2-2 2.4-1.6l8 1.6c.8 0 1.6 1.2 1.6 2v2.8zm32-.4c0 .8-.8 2-1.6 2H42c-.8 0-2-.8-2-1.6v-2.8c0-.8.8-2 1.6-2l8-1.6c1.2-.4 2 .4 2.4 1.6V34z"/></symbol>
+		<symbol viewBox="0 0 40 40" id="card" xmlns="http://www.w3.org/2000/svg"><path d="M33.333 6.667H6.667A3.308 3.308 0 003.35 10l-.017 20a3.322 3.322 0 003.334 3.333h26.666A3.322 3.322 0 0036.667 30V10a3.322 3.322 0 00-3.334-3.333zm0 23.333H6.667V20h26.666v10zm0-16.667H6.667V10h26.666v3.333z"/></symbol>
+		<symbol viewBox="0 0 34 41" id="cleaning" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#iclip0_66_138)"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.712 17.845L6.546 2.261A1.19 1.19 0 017.034.656a1.175 1.175 0 011.597.491l8.167 15.584 1.797-.96a4.707 4.707 0 016.387 1.962l.765 1.447 8.11 11.927-10.316 5.51-3.573-7.097-2.106 1.071 3.595 7.142-4.423 2.362-5.306-13.427-.764-1.445a4.76 4.76 0 011.952-6.418l1.796-.96zm4.99.021L14.024 20.9a2.364 2.364 0 00-1.15 1.401 2.384 2.384 0 00.173 1.808l.764 1.445 9.85-5.263-.765-1.444a2.372 2.372 0 00-1.395-1.155 2.352 2.352 0 00-1.799.174z"/><path d="M9.643 29.421a1.179 1.179 0 00-1.663-.153h.003l-.013.01-.074.057c-.106.08-.214.156-.324.23-.293.196-.73.463-1.292.73a10.758 10.758 0 01-4.627 1.072c-.313 0-.614.125-.835.348a1.19 1.19 0 000 1.677c.221.223.522.348.835.348a13.109 13.109 0 005.643-1.302 12.77 12.77 0 001.586-.899c.19-.128.375-.262.555-.403l.036-.028.012-.01.003-.004h.002l.002-.002a1.188 1.188 0 00.15-1.67zm2.436 6.033a1.188 1.188 0 01-.327 1.645l-.002.003-.005.002-.011.007-.037.024a18.646 18.646 0 01-2.334 1.248c-1.393.623-3.341 1.288-5.35 1.288-.312 0-.613-.124-.834-.347a1.19 1.19 0 010-1.678 1.18 1.18 0 01.835-.347c1.532 0 3.128-.521 4.39-1.085a16.845 16.845 0 002.012-1.072l.024-.014.002-.003a1.176 1.176 0 011.637.329z"/></g><defs><clipPath id="iclip0_66_138"><path d="M0 0h34v41H0z"/></clipPath></defs></symbol>
+		<symbol viewBox="0 0 25 25" id="close" xmlns="http://www.w3.org/2000/svg"><path d="M23.649 0L12.5 11.149 1.351 0 0 1.351 11.149 12.5 0 23.649 1.351 25 12.5 13.851 23.649 25 25 23.649 13.851 12.5 25 1.351 23.649 0z"/></symbol>
+		<symbol viewBox="0 0 12 12" id="copyright" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#kclip0_66_180)"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 0a6 6 0 100 12A6 6 0 006 0zM4.2 6a1.8 1.8 0 013.15-1.19.6.6 0 10.9-.795 3 3 0 100 3.97.6.6 0 00-.9-.795A1.8 1.8 0 014.2 6z"/></g><defs><clipPath id="kclip0_66_180"><path d="M0 0h12v12H0z"/></clipPath></defs></symbol>
+		<symbol viewBox="0 0 38 38" id="drill" xmlns="http://www.w3.org/2000/svg"><path d="M10.688 15.833h7.124c.317 0 .594-.118.832-.356a1.14 1.14 0 00.356-.831 1.14 1.14 0 00-.356-.831 1.14 1.14 0 00-.831-.357h-7.125a1.14 1.14 0 00-.832.357 1.14 1.14 0 00-.356.83c0 .318.119.595.356.832.238.238.515.356.832.356zm0-3.958h7.124c.317 0 .594-.119.832-.356a1.14 1.14 0 00.356-.832 1.14 1.14 0 00-.356-.83 1.14 1.14 0 00-.831-.357h-7.125a1.14 1.14 0 00-.832.356 1.14 1.14 0 00-.356.832c0 .316.119.593.356.83.238.238.515.357.832.357zm16.229 5.542v-9.5H28.5c.87 0 1.616.31 2.237.93.62.621.93 1.367.93 2.236h3.166c.449 0 .825.152 1.13.456.303.304.455.68.454 1.128 0 .448-.152.825-.456 1.129-.304.304-.68.455-1.128.454h-3.166c0 .87-.31 1.617-.931 2.237-.621.62-1.366.93-2.236.93h-1.583zM19 24.542H9.5v-3.959c-1.742 0-3.233-.62-4.473-1.86-1.24-1.24-1.86-2.731-1.86-4.473v-3.167c0-1.741.62-3.232 1.86-4.473C6.267 5.37 7.758 4.75 9.5 4.75h12.667c.87 0 1.616.31 2.237.931.62.62.93 1.366.93 2.236v9.5c0 .87-.311 1.616-.932 2.237a3.05 3.05 0 01-2.235.93H19v3.958zM8.708 33.25a2.29 2.29 0 01-1.683-.694 2.284 2.284 0 01-.692-1.681V28.5c0-.66.231-1.22.694-1.683a2.284 2.284 0 011.681-.692h11.084c.66 0 1.22.231 1.683.694.462.462.693 1.022.692 1.681v2.375c0 .66-.232 1.22-.694 1.683a2.284 2.284 0 01-1.681.692H8.708z"/></symbol>
+		<symbol viewBox="0 0 60 60" id="file" xmlns="http://www.w3.org/2000/svg"><path d="M11.25 5.625v48.75h37.5V18l-.563-.563-11.25-11.25-.562-.562H11.25zM15 9.375h18.75v11.25H45v30H15V9.375zM37.5 12l4.875 4.875H37.5V12zM18.75 24.375v3.75h22.5v-3.75h-22.5zM25.313 30c-1.688 0-3 1.125-3.75 2.438-.75 1.312-.938 3-.938 4.874 0 1.126.375 2.25.563 3.376-.75.187-1.5.75-2.438.75v3.75c1.313 0 2.625-.188 3.75-.563.188.375.188.563.563.938a4.523 4.523 0 003.187 1.312c3 0 4.875-2.063 6.188-3.563.187-.374.374-.562.562-.75 0 .188 0 .376.188.563.187.375.374.75.75 1.125.374.375 1.124.75 1.687.75 1.125 0 1.875-.75 2.25-1.125s.75-.938 1.125-1.313c.75-.75 1.313-1.312 2.063-1.312V37.5c-2.25 0-3.938 1.313-4.876 2.438 0-.188 0-.376-.187-.563-.188-.375-.375-.75-.75-1.313-.375-.562-.938-.562-1.5-.562-1.5 0-2.063.938-2.625 1.5a8.325 8.325 0 00-1.5 2.063c-1.125 1.312-1.875 2.062-3.375 2.062-.188 0-.188-.188-.375-.188.188 0 .188-.187.375-.187 2.063-1.688 3.75-3.938 3.75-6.938 0-1.5-.375-2.812-1.125-3.937A4.267 4.267 0 0025.312 30zm-.188 3.75c.563 0 .563 0 .75.375.188.375.375.938.375 1.875 0 1.125-.563 2.25-1.5 3.188 0-.563-.375-1.313-.375-1.688 0-1.5.188-2.625.563-3.188.187-.374.187-.562.187-.562z"/></symbol>
+		<symbol viewBox="0 0 22 20" id="hammer" xmlns="http://www.w3.org/2000/svg"><path d="M12.038 9.432L10.916 8.31a1.375 1.375 0 00-1.94-.005l-7.8 7.198c-.284.268-.47.61-.487.991a1.38 1.38 0 00.396 1.029l1.675 1.694a1.388 1.388 0 00.978.408h.051c.382-.014.724-.193.996-.48l7.248-7.764a1.373 1.373 0 00.005-1.949zm9.017-2.268l-.014-.013-1.472-1.458a.923.923 0 00-.657-.269.94.94 0 00-.55.178c0-.018.003-.036.005-.052.019-.28.049-.702-.224-1.084a11.08 11.08 0 00-1.069-1.238c-.572-.564-1.818-1.626-3.726-2.404a5.996 5.996 0 00-2.28-.449c-1.357 0-2.388.612-2.783.975a5.153 5.153 0 00-.61.696.687.687 0 00.802 1.046 3.2 3.2 0 01.369-.113 2.77 2.77 0 01.792-.05c.567.048 1.237.33 1.534.563.503.405.744.95.784 1.766.008.164-.331.78-.859 1.482a.687.687 0 00.062.902l1.479 1.478a.687.687 0 00.945.027c.418-.373 1.055-.936 1.278-1.074.33-.203.566-.242.631-.25a.824.824 0 01.485.103.052.052 0 01-.013.04l-.078.075-.013.012a.925.925 0 00.002 1.312l1.472 1.457a.921.921 0 00.657.269c.244 0 .48-.095.654-.266l2.385-2.356a.94.94 0 00.012-1.305z"/></symbol>
+		<symbol viewBox="0 0 18 18" id="key" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.667 6.5a5.833 5.833 0 114.635 5.71L9 13.512A1.667 1.667 0 017.822 14h-.489a1.667 1.667 0 01-1.666 1.667A1.667 1.667 0 014 17.333H2.333a1.667 1.667 0 01-1.666-1.666v-2.155c0-.442.175-.866.488-1.179L5.79 7.698A5.855 5.855 0 015.667 6.5zM11.5 4a.833.833 0 100 1.667.833.833 0 01.833.833.834.834 0 001.667 0A2.5 2.5 0 0011.5 4z"/></symbol>
+		<symbol viewBox="0 0 36 36" id="like" xmlns="http://www.w3.org/2000/svg"><path d="M30.405 24.398l1.057-6.12a2.498 2.498 0 00-2.46-2.925h-7.771a1.248 1.248 0 01-1.233-1.454l.994-6.067a7.174 7.174 0 00-.135-2.96 2.453 2.453 0 00-1.638-1.705l-.217-.071a2.02 2.02 0 00-1.491.102c-.51.246-.882.695-1.02 1.227l-.714 2.751c-.227.875-.558 1.72-.984 2.519-.623 1.165-1.586 2.1-2.588 2.962l-2.158 1.86a2.506 2.506 0 00-.858 2.109l1.218 14.09A2.5 2.5 0 0012.895 33h6.972c5.223 0 9.68-3.639 10.538-8.602z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4.452 14.227a1.125 1.125 0 011.17 1.028l1.455 16.854a1.855 1.855 0 11-3.702.16V15.351a1.125 1.125 0 011.077-1.124z"/></symbol>
+		<symbol viewBox="0 0 30 30" id="mail" xmlns="http://www.w3.org/2000/svg"><path d="M25.783 6.057H4.217a.768.768 0 00-.767.767v1.543c0 .071.077.153.14.186l11.336 6.474a.19.19 0 00.095.025.19.19 0 00.097-.026l10.994-6.467c.062-.035.225-.126.287-.168.074-.05.151-.096.151-.187v-1.38a.768.768 0 00-.767-.767zm.671 4.637a.193.193 0 00-.193 0l-6.221 3.661a.192.192 0 00-.044.296l6.222 6.707a.19.19 0 00.276.005.192.192 0 00.056-.136V10.86a.192.192 0 00-.096-.166zm-8.207 4.89a.19.19 0 00-.237-.035l-2.494 1.467a.972.972 0 01-.962.007l-2.195-1.254a.193.193 0 00-.225.026L3.8 23.525a.192.192 0 00.035.305c.13.077.254.113.382.113h21.345a.19.19 0 00.19-.224.19.19 0 00-.05-.098l-7.455-8.037zM10.3 14.88a.19.19 0 00.03-.246.191.191 0 00-.064-.06l-6.53-3.73a.192.192 0 00-.286.167v9.786a.191.191 0 00.322.14L10.3 14.88z"/></symbol>
+		<symbol viewBox="0 0 30 30" id="phone" xmlns="http://www.w3.org/2000/svg"><path d="M6.25 12.325A23.083 23.083 0 0018.207 23.94l.85.379a4.375 4.375 0 005.413-1.559l1.111-1.655a1.25 1.25 0 00-.253-1.669L21.563 16.4a1.247 1.247 0 00-1.79.229l-1.164 1.57a15.175 15.175 0 01-6.888-6.888l1.57-1.165a1.25 1.25 0 00.229-1.789l-3.037-3.765a1.25 1.25 0 00-1.67-.253L7.149 5.455A4.375 4.375 0 005.6 10.899l.649 1.426z"/></symbol>
+		<symbol viewBox="0 0 50 50" id="sack" xmlns="http://www.w3.org/2000/svg"><path d="M33.333 18.75C41.667 22.917 43.75 37.5 43.75 37.5s2.083 8.333-10.417 8.333H16.667C4.167 45.833 6.25 37.5 6.25 37.5s2.083-14.583 10.417-18.75m12.5-10.417L25 4.167l-4.167 4.166L12.5 4.167l4.167 10.416h16.666L37.5 4.167l-8.333 4.166z"/></symbol>
+		<symbol viewBox="0 0 24 24" id="store" xmlns="http://www.w3.org/2000/svg"><path d="M4 6V4h16v2H4zm0 14v-6H3v-2l1-5h16l1 5v2h-1v6h-2v-6h-4v6H4zm2-2h6v-4H6v4z"/></symbol>
+		<symbol viewBox="0 0 60 60" id="tape-measure" xmlns="http://www.w3.org/2000/svg"><path d="M22.5 12.5A17.5 17.5 0 0140 30h2.5v7.5H40v10H22.5a17.5 17.5 0 110-35zm0 7.5a10 10 0 100 20 10 10 0 000-20zm20 22.5H55v10h-5v-5h-7.5v-5z"/></symbol>
+		<symbol viewBox="0 0 28 28" id="wa" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 0C6.262 0 0 6.258 0 14c0 2.92.89 5.62 2.472 7.94a.7.7 0 01.087.602L1.137 27.3l4.66-1.608a.7.7 0 01.602.077 13.917 13.917 0 007.6 2.231C21.743 28 28 21.742 28 14S21.742 0 14 0zM8.27 6.103l2.548 4.211-1.06 1.05a.7.7 0 00-.11.842c1.62 2.804 3.537 4.985 6.223 6.17a.7.7 0 00.777-.143l1.127-1.126 4.112 2.57c-.455 1.025-1.049 1.635-1.728 1.99-.787.412-1.747.49-2.844.263-2.193-.455-4.841-2.178-7-4.386-2.158-2.208-3.829-4.893-4.254-7.077-.213-1.092-.12-2.033.284-2.778.347-.642.937-1.192 1.925-1.586z"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank" rel="noopener noreferrer">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/svg-sprite/svg-sprite/blob/1.5.x/docs/configuration.md#defs--symbol-mode" target="_blank" rel="noopener noreferrer">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank" rel="noopener noreferrer">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="arrow">
+					<div class="icon-box">
+
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="#arrow"></use>
+						</svg>
+
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="arrowbottom">
+					<div class="icon-box">
+
+						<!-- arrowbottom -->
+						<svg class="svg-arrowbottom-dims">
+							<use xlink:href="#arrowbottom"></use>
+						</svg>
+
+					</div>
+					<h2>arrowbottom</h2>
+				</li>
+				<li title="bricks">
+					<div class="icon-box">
+
+						<!-- bricks -->
+						<svg class="svg-bricks-dims">
+							<use xlink:href="#bricks"></use>
+						</svg>
+
+					</div>
+					<h2>bricks</h2>
+				</li>
+				<li title="calendar">
+					<div class="icon-box">
+
+						<!-- calendar -->
+						<svg class="svg-calendar-dims">
+							<use xlink:href="#calendar"></use>
+						</svg>
+
+					</div>
+					<h2>calendar</h2>
+				</li>
+				<li title="call">
+					<div class="icon-box">
+
+						<!-- call -->
+						<svg class="svg-call-dims">
+							<use xlink:href="#call"></use>
+						</svg>
+
+					</div>
+					<h2>call</h2>
+				</li>
+				<li title="camera">
+					<div class="icon-box">
+
+						<!-- camera -->
+						<svg class="svg-camera-dims">
+							<use xlink:href="#camera"></use>
+						</svg>
+
+					</div>
+					<h2>camera</h2>
+				</li>
+				<li title="car">
+					<div class="icon-box">
+
+						<!-- car -->
+						<svg class="svg-car-dims">
+							<use xlink:href="#car"></use>
+						</svg>
+
+					</div>
+					<h2>car</h2>
+				</li>
+				<li title="card">
+					<div class="icon-box">
+
+						<!-- card -->
+						<svg class="svg-card-dims">
+							<use xlink:href="#card"></use>
+						</svg>
+
+					</div>
+					<h2>card</h2>
+				</li>
+				<li title="cleaning">
+					<div class="icon-box">
+
+						<!-- cleaning -->
+						<svg class="svg-cleaning-dims">
+							<use xlink:href="#cleaning"></use>
+						</svg>
+
+					</div>
+					<h2>cleaning</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+
+						<!-- close -->
+						<svg class="svg-close-dims">
+							<use xlink:href="#close"></use>
+						</svg>
+
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="copyright">
+					<div class="icon-box">
+
+						<!-- copyright -->
+						<svg class="svg-copyright-dims">
+							<use xlink:href="#copyright"></use>
+						</svg>
+
+					</div>
+					<h2>copyright</h2>
+				</li>
+				<li title="drill">
+					<div class="icon-box">
+
+						<!-- drill -->
+						<svg class="svg-drill-dims">
+							<use xlink:href="#drill"></use>
+						</svg>
+
+					</div>
+					<h2>drill</h2>
+				</li>
+				<li title="file">
+					<div class="icon-box">
+
+						<!-- file -->
+						<svg class="svg-file-dims">
+							<use xlink:href="#file"></use>
+						</svg>
+
+					</div>
+					<h2>file</h2>
+				</li>
+				<li title="hammer">
+					<div class="icon-box">
+
+						<!-- hammer -->
+						<svg class="svg-hammer-dims">
+							<use xlink:href="#hammer"></use>
+						</svg>
+
+					</div>
+					<h2>hammer</h2>
+				</li>
+				<li title="key">
+					<div class="icon-box">
+
+						<!-- key -->
+						<svg class="svg-key-dims">
+							<use xlink:href="#key"></use>
+						</svg>
+
+					</div>
+					<h2>key</h2>
+				</li>
+				<li title="like">
+					<div class="icon-box">
+
+						<!-- like -->
+						<svg class="svg-like-dims">
+							<use xlink:href="#like"></use>
+						</svg>
+
+					</div>
+					<h2>like</h2>
+				</li>
+				<li title="mail">
+					<div class="icon-box">
+
+						<!-- mail -->
+						<svg class="svg-mail-dims">
+							<use xlink:href="#mail"></use>
+						</svg>
+
+					</div>
+					<h2>mail</h2>
+				</li>
+				<li title="phone">
+					<div class="icon-box">
+
+						<!-- phone -->
+						<svg class="svg-phone-dims">
+							<use xlink:href="#phone"></use>
+						</svg>
+
+					</div>
+					<h2>phone</h2>
+				</li>
+				<li title="sack">
+					<div class="icon-box">
+
+						<!-- sack -->
+						<svg class="svg-sack-dims">
+							<use xlink:href="#sack"></use>
+						</svg>
+
+					</div>
+					<h2>sack</h2>
+				</li>
+				<li title="store">
+					<div class="icon-box">
+
+						<!-- store -->
+						<svg class="svg-store-dims">
+							<use xlink:href="#store"></use>
+						</svg>
+
+					</div>
+					<h2>store</h2>
+				</li>
+				<li title="tape-measure">
+					<div class="icon-box">
+
+						<!-- tape-measure -->
+						<svg class="svg-tape-measure-dims">
+							<use xlink:href="#tape-measure"></use>
+						</svg>
+
+					</div>
+					<h2>tape-measure</h2>
+				</li>
+				<li title="wa">
+					<div class="icon-box">
+
+						<!-- wa -->
+						<svg class="svg-wa-dims">
+							<use xlink:href="#wa"></use>
+						</svg>
+
+					</div>
+					<h2>wa</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+
+				<li title="arrow">
+					<div class="icon-box">
+
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="../sprite.svg#arrow"></use>
+						</svg>
+
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="arrowbottom">
+					<div class="icon-box">
+
+						<!-- arrowbottom -->
+						<svg class="svg-arrowbottom-dims">
+							<use xlink:href="../sprite.svg#arrowbottom"></use>
+						</svg>
+
+					</div>
+					<h2>arrowbottom</h2>
+				</li>
+				<li title="bricks">
+					<div class="icon-box">
+
+						<!-- bricks -->
+						<svg class="svg-bricks-dims">
+							<use xlink:href="../sprite.svg#bricks"></use>
+						</svg>
+
+					</div>
+					<h2>bricks</h2>
+				</li>
+				<li title="calendar">
+					<div class="icon-box">
+
+						<!-- calendar -->
+						<svg class="svg-calendar-dims">
+							<use xlink:href="../sprite.svg#calendar"></use>
+						</svg>
+
+					</div>
+					<h2>calendar</h2>
+				</li>
+				<li title="call">
+					<div class="icon-box">
+
+						<!-- call -->
+						<svg class="svg-call-dims">
+							<use xlink:href="../sprite.svg#call"></use>
+						</svg>
+
+					</div>
+					<h2>call</h2>
+				</li>
+				<li title="camera">
+					<div class="icon-box">
+
+						<!-- camera -->
+						<svg class="svg-camera-dims">
+							<use xlink:href="../sprite.svg#camera"></use>
+						</svg>
+
+					</div>
+					<h2>camera</h2>
+				</li>
+				<li title="car">
+					<div class="icon-box">
+
+						<!-- car -->
+						<svg class="svg-car-dims">
+							<use xlink:href="../sprite.svg#car"></use>
+						</svg>
+
+					</div>
+					<h2>car</h2>
+				</li>
+				<li title="card">
+					<div class="icon-box">
+
+						<!-- card -->
+						<svg class="svg-card-dims">
+							<use xlink:href="../sprite.svg#card"></use>
+						</svg>
+
+					</div>
+					<h2>card</h2>
+				</li>
+				<li title="cleaning">
+					<div class="icon-box">
+
+						<!-- cleaning -->
+						<svg class="svg-cleaning-dims">
+							<use xlink:href="../sprite.svg#cleaning"></use>
+						</svg>
+
+					</div>
+					<h2>cleaning</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+
+						<!-- close -->
+						<svg class="svg-close-dims">
+							<use xlink:href="../sprite.svg#close"></use>
+						</svg>
+
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="copyright">
+					<div class="icon-box">
+
+						<!-- copyright -->
+						<svg class="svg-copyright-dims">
+							<use xlink:href="../sprite.svg#copyright"></use>
+						</svg>
+
+					</div>
+					<h2>copyright</h2>
+				</li>
+				<li title="drill">
+					<div class="icon-box">
+
+						<!-- drill -->
+						<svg class="svg-drill-dims">
+							<use xlink:href="../sprite.svg#drill"></use>
+						</svg>
+
+					</div>
+					<h2>drill</h2>
+				</li>
+				<li title="file">
+					<div class="icon-box">
+
+						<!-- file -->
+						<svg class="svg-file-dims">
+							<use xlink:href="../sprite.svg#file"></use>
+						</svg>
+
+					</div>
+					<h2>file</h2>
+				</li>
+				<li title="hammer">
+					<div class="icon-box">
+
+						<!-- hammer -->
+						<svg class="svg-hammer-dims">
+							<use xlink:href="../sprite.svg#hammer"></use>
+						</svg>
+
+					</div>
+					<h2>hammer</h2>
+				</li>
+				<li title="key">
+					<div class="icon-box">
+
+						<!-- key -->
+						<svg class="svg-key-dims">
+							<use xlink:href="../sprite.svg#key"></use>
+						</svg>
+
+					</div>
+					<h2>key</h2>
+				</li>
+				<li title="like">
+					<div class="icon-box">
+
+						<!-- like -->
+						<svg class="svg-like-dims">
+							<use xlink:href="../sprite.svg#like"></use>
+						</svg>
+
+					</div>
+					<h2>like</h2>
+				</li>
+				<li title="mail">
+					<div class="icon-box">
+
+						<!-- mail -->
+						<svg class="svg-mail-dims">
+							<use xlink:href="../sprite.svg#mail"></use>
+						</svg>
+
+					</div>
+					<h2>mail</h2>
+				</li>
+				<li title="phone">
+					<div class="icon-box">
+
+						<!-- phone -->
+						<svg class="svg-phone-dims">
+							<use xlink:href="../sprite.svg#phone"></use>
+						</svg>
+
+					</div>
+					<h2>phone</h2>
+				</li>
+				<li title="sack">
+					<div class="icon-box">
+
+						<!-- sack -->
+						<svg class="svg-sack-dims">
+							<use xlink:href="../sprite.svg#sack"></use>
+						</svg>
+
+					</div>
+					<h2>sack</h2>
+				</li>
+				<li title="store">
+					<div class="icon-box">
+
+						<!-- store -->
+						<svg class="svg-store-dims">
+							<use xlink:href="../sprite.svg#store"></use>
+						</svg>
+
+					</div>
+					<h2>store</h2>
+				</li>
+				<li title="tape-measure">
+					<div class="icon-box">
+
+						<!-- tape-measure -->
+						<svg class="svg-tape-measure-dims">
+							<use xlink:href="../sprite.svg#tape-measure"></use>
+						</svg>
+
+					</div>
+					<h2>tape-measure</h2>
+				</li>
+				<li title="wa">
+					<div class="icon-box">
+
+						<!-- wa -->
+						<svg class="svg-wa-dims">
+							<use xlink:href="../sprite.svg#wa"></use>
+						</svg>
+
+					</div>
+					<h2>wa</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Wed, 30 Aug 2023 07:44:40 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
