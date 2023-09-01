@@ -141,6 +141,7 @@
 	margin-bottom: 8rem;
 }
 .services_list_btn {
+	position: relative;
 }
 .services_list {
 	margin-bottom: 10rem;
@@ -153,7 +154,8 @@
 		background: linear-gradient(180deg, #FF9A02 0%, #FFC83A 66.67%);
 		display: flex;
 		flex-direction: column;
-		// justify-content: space-between;
+		justify-content: space-between;
+		height: 42rem;
 	}
 	button {
 		padding: 3.5rem 0 0 5rem;
@@ -166,11 +168,11 @@
 }
 .services_list_head {
 	text-align: left;
+	right: 0;
 }
 .services_list_img {
-
-	display: flex;
-	justify-content: right;
+	position: absolute;
+	right: 0;
 }
 .services_list_bottom {
 	background: $black;
