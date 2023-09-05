@@ -19,6 +19,7 @@ $(document).ready(function ($) {
 $(window).on('load', function () {
 	updateSizes();
 	loadFunc();
+	modal();
 });
 
 $(window).on('resize', function () {
@@ -172,9 +173,58 @@ const stepSlider = new Swiper('.know_slider', {
 
 
 
+function modal() {
+	let popup = document.querySelectorAll('.popup')
+	let btnArray = document.querySelectorAll('.trigger')
+	
+	btnArray.forEach((el) => {
+		el.addEventListener('click', function(e) {
+			e.preventDefault();
+			let path = e.currentTarget.dataset.target
+			
+			popup.forEach((el) => {
+				if(el.dataset.id == path) {
+					isOpen(el)
+				}
+			})
+			
+		})
+	})
+	
+
+	popup.forEach((pop) => {
+		let remove = pop.querySelectorAll('.remove')
+		remove.forEach(el => {
+			el.addEventListener('click', (e) => {
+				isRemove(pop);
+			})
+		});
+	})
+	fileInputName();
+}
 
 
 
+function isOpen(popup) {
+	document.body.classList.add('fixed')
+	popup.classList.add('active')
+}
+
+function isRemove(popup) {
+	popup.classList.remove('active')
+	document.body.classList.remove('fixed')
+}
+
+
+function fileInputName() {
+		let input = document.querySelector('#my-file')
+		let totalName = document.querySelector('.file_return')
+		let pattern = /((?:.(?!\(\d+\)))+.)(?:\(\d+\))?\..+/
+
+		document.addEventListener('change', () => {
+			totalName.innerHTML = input.files[0].name.match(pattern)[1]
+		})
+}
 
 
 

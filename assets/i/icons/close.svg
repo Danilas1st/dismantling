@@ -1,3 +1,5 @@
-<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M23.6486 0L12.5 11.1486L1.35144 0L0 1.35144L11.1486 12.5L0 23.6486L1.35144 25L12.5 13.8514L23.6486 25L25 23.6486L13.8514 12.5L25 1.35144L23.6486 0Z" fill="#232323"/>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ion:close-sharp">
+<path id="Vector" d="M31.25 11.3664L28.6336 8.75L20 17.3836L11.3664 8.75L8.75 11.3664L17.3836 20L8.75 28.6336L11.3664 31.25L20 22.6164L28.6336 31.25L31.25 28.6336L22.6164 20L31.25 11.3664Z" fill="#BFBFBF"/>
+</g>
 </svg>

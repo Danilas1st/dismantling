@@ -1,0 +1,97 @@
+.popup.popup_submit(data-id="form")
+	.popup_form_bg.close_popups.remove
+	.popup_form_w
+		.popup_close.close_popups.remove 
+			button(type="button")
+				+icon('close')
+		.popup_form_left
+			img(src="i/popup.png", alt="")
+		.popup_form_right
+			.popup_form_info
+				.popup_form_head
+					h3 Демонтаж стен
+				.popup_form_txt 
+					p Демонтаж стен из кирпича, ГКЛ, блоков, бетона.
+				.popup_form_price 
+					p Цена:
+					span от 300 ₽/м2
+			.popup_form_head_sec 
+				p Рассчитать стоимость демонтажа:
+			form.popup_form
+				.popup_form_input
+					input(type="text" placeholder="Имя")
+				.popup_form_input
+					input(type="tel" placeholder="Номер телефона")
+				.popup_policy!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#">Политику конфиденциальности</a>'
+				.popup_form_btn 
+					input(type="submit" value="Отправить заявку")
+
+
+
+
+.popup.popup_submit(data-id="form_foto")
+	.popup_form_bg.close_popups.remove
+	.popup_form_foto
+		.popup_close.close_popups.remove 
+			button(type="button")
+				+icon('close')
+		.popup_form_head_foto
+			h3 Заполните необходимые поля:
+		form.popup_form
+		.popup_form_input
+			input(type="text" placeholder="Имя")
+		.popup_form_input
+			input(type="tel" placeholder="Номер телефона")
+		.popup_form_file 
+			p Прикрепить фото объекта:
+			.popup_form_file_btn 
+				input(type="file" id="my-file" class="input-file")
+				label( tabindex="0" for="my-file" class="input-file-trigger") 
+					span 
+						+icon('clip')
+					span ПРИКРЕПИТЬ
+				p.file_return
+		.popup_policy!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#">Политику конфиденциальности</a>'
+		.popup_form_foto_btn 
+			input(type="submit" value="Отправить заявку")
+
+
+
+
+.popup.popup_submit(data-id="form_main")
+	.popup_form_bg.close_popups.remove
+	.popup_form_foto
+		.popup_close.close_popups.remove 
+			button(type="button")
+				+icon('close')
+		.popup_form_head_foto
+			h3 Заполните необходимые поля:
+		form.popup_form
+		.popup_form_input
+			input(type="text" placeholder="Имя")
+		.popup_form_input
+			input(type="tel" placeholder="Номер телефона")
+		.popup_policy!='Отправляя заявку вы соглашаетесь на обработку своих персональных данных и принимаете <a href="#">Политику конфиденциальности</a>'
+		.popup_form_foto_btn 
+			input(type="submit" value="Отправить заявку")
+
+
+
+
+
+
+.popup.popup_menu(data-id="menu")
+	.popup_form_bg_m.close_popups.remove 
+	.popup_form_m
+		.popup_close_m.close_popups.remove 
+			button(type="button")
+				+icon('close')
+		.popup_menu_head 
+			.popup_logo 
+				a(href="#")
+					img(src="i/logo.png", alt="")
+		.popup_menu_main
+			ul
+				each item in ['УСЛУГИ И ЦЕНЫ', 'О НАС', 'КАК МЫ РАБОТАЕМ', 'КОНТАКТЫ']
+					li.remove
+						a(href="#")=item 

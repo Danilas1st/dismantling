@@ -33,7 +33,7 @@ block content_block
 						.hero_txt_btn 
 							.hero_txt_btn_img
 								img(src="i/arrowbtn.png", alt="")
-							button(type="button") 
+							button(type="button" data-target="form_foto" class="trigger") 
 								+icon('camera')
 								p Расчет по фото
 	section.hero_main_bottom
@@ -70,81 +70,81 @@ block content_block
 					.services_list 
 						ul 
 							li
-								.services_list_btn
-									button(type="button") 
+								button(type="button" data-target="form" class="trigger") 
+									.services_list_top
 										.services_list_head 
 											p Стены
 										.services_list_img 
 											img(src="i/wall.png", alt="")
-								.services_list_bottom 
-									.services_bottom_price 
-										span от 300 ₽/м2
-									.services_bottom_img
-										+icon('arrow')
+									.services_list_bottom 
+										.services_bottom_price 
+											span от 300 ₽/м2
+										.services_bottom_img
+											+icon('arrow')
 							li
-								.services_list_btn
-									button(type="button") 
+								button(type="button" data-target="form" class="trigger") 
+									.services_list_top
 										.services_list_head 
 											p Плитка
 										.services_list_img 
 											img(src="i/tile.png", alt="")
-								.services_list_bottom 
-									.services_bottom_price 
-										span от 150 ₽/м2
-									.services_bottom_img
-										+icon('arrow')
+									.services_list_bottom 
+										.services_bottom_price 
+											span от 150 ₽/м2
+										.services_bottom_img
+											+icon('arrow')
 							li
-								.services_list_btn
-									button(type="button") 
+								button(type="button" data-target="form" class="trigger") 
+									.services_list_top
 										.services_list_head 
 											p Стяжки
 										.services_list_img 
 											img(src="i/coupler.png", alt="")
-								.services_list_bottom 
-									.services_bottom_price 
-										span от 300 ₽/м2
-									.services_bottom_img
-										+icon('arrow')
+									.services_list_bottom 
+										.services_bottom_price 
+											span от 300 ₽/м2
+										.services_bottom_img
+											+icon('arrow')
 					.services_head 
 						h2 А также отдельные сооружения:
 					.services_list 
 						ul 
 							li
-								.services_list_btn
-									button(type="button") 
+								button(type="button" data-target="form" class="trigger") 
+									.services_list_top
 										.services_list_head 
 											p Сараи
 										.services_list_img 
 											img(src="i/barn.png", alt="")
-								.services_list_bottom 
-									.services_bottom_price 
-										span Цена после замера
-									.services_bottom_img
-										+icon('arrow')
+									.services_list_bottom 
+										.services_bottom_price 
+											span Цена после замера
+										.services_bottom_img
+											+icon('arrow')
 							li
-								.services_list_btn
-									button(type="button") 
+								button(type="button" data-target="form" class="trigger") 
+									.services_list_top
 										.services_list_head 
 											p Бани
 										.services_list_img 
 											img(src="i/bath.png", alt="")
-								.services_list_bottom 
-									.services_bottom_price 
-										span Цена после замера
-									.services_bottom_img
-										+icon('arrow')
+									.services_list_bottom 
+										.services_bottom_price 
+											span Цена после замера
+										.services_bottom_img
+											+icon('arrow')
 							li
-								.services_list_btn
-									button(type="button") 
-										.services_list_head 
-											p Дома
-											span одноэтажные частные
-										.services_list_img 
-											img(src="i/home.png", alt="")
-								.services_list_bottom 
-									.services_bottom_price 
-										span Цена после замера
-									.services_bottom_img
+								button(type="button" data-target="form" class="trigger") 
+									.services_list_top
+											.services_list_head 
+												p Дома
+												span одноэтажные частные
+											.services_list_img 
+												img(src="i/home.png", alt="")
+									.services_list_bottom 
+										.services_bottom_price 
+											span Цена после замера
+										.services_bottom_img
 										+icon('arrow')
 				.services_main_bottom 
 					.services_item_head
@@ -168,7 +168,7 @@ block content_block
 										tr 
 											th
 												.name
-													button(type="button") Демонтаж стен из кирпича
+													button(type="button" data-target="form_main" class="trigger") Демонтаж стен из кирпича
 											th
 												.price
 													p 300 ₽
@@ -189,7 +189,7 @@ block content_block
 						.about_left_info_third
 							p Пришлите фотографию объекта прямо сейчас и мы сделаем расчет по фото:
 					.about_left_btn 
-						button(type="button") 
+						button(type="button" data-target="form_foto" class="trigger") 
 								+icon('camera')
 								p Расчет по фото
 				.about_right 
@@ -293,7 +293,7 @@ block content_block
 					.contacts_info 
 						p Или оставьте нам заявку и мы сами перезвоним вам:
 					.contacts_btn 
-						button(type="button") Оставить заявку
+						button(type="button" data-target="form_main" class="trigger") Оставить заявку
 				.contacts_main_right 
 					img(src="i/men.png", alt="")
 
