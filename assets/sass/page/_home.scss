@@ -897,14 +897,19 @@
 		font-family: $font_1;
 	}
 }
-.swiper-pagination {
-	position: absolute;
-	top: 0;
-	width: 100%;
-	text-align: left!important;
+.know_pagination {
+
+	.swiper-pagination {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		text-align: left!important;
+		display: flex;
+	}
 }
 .swiper-pagination-bullet {
-	width: 25rem!important;
+	// width: 25rem!important;
+	flex-grow: 1;
 	height: 6rem!important;
 	text-align: left;
 	padding: 1rem 0 1rem 2rem;
@@ -947,23 +952,12 @@
 		background-color: #32363A;
 		z-index: -1;
 	}
-	@include bp(1620px) {
-		width: 24rem!important;
-	}
-	@include bp(1024px) {
-		width: 18rem!important;	
-	}
 	@include bp(820px) {
-		width: 14rem!important;
 		font-size: 2rem;
 		height: 5rem!important;
 	}
-	@include bp(768px) {
-		width: 13rem!important;	
-	}
 	@include bp(480px) {
 		padding: 1rem 2rem;	
-		width: 6rem!important;
 	}
 }
 
