@@ -8,12 +8,18 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 4.1rem 0;
+	@include bp(480px) {
+			flex-direction: column;
+	}
 }
 .footer_left {
 }
 .footer_policy {
-	A {
+	a {
 		color: $white;
+	}
+	@include bp(480px) {
+		margin-bottom: 2rem;	
 	}
 }
 .footer_right {

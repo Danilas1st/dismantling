@@ -9,6 +9,12 @@
 		left: 0;
 		background: url('../../i/herobg.png') center/cover no-repeat;
 		z-index: -1;
+		@include bp(768px) {
+			width: 124%;
+		}
+		@include bp(480px) {
+			width: 150%;
+		}
 	} 
 }
 .section_in {
@@ -20,12 +26,25 @@
 		font-family: $font_3;
 		color: $white;
 	}
+	@include bp(768px) {
+		padding: 8rem 0 10rem 0;
+	}
 }
 .hero_main_top {
 }
 .hero_head {
 	max-width: 60.9rem;
 	margin-bottom: 6rem;
+	@include bp(1620px) {
+		h1 {
+			font-size: 4rem;
+		}
+	}
+	@include bp(480px) {
+		h1 {
+			font-size: 2.8rem;
+		}
+	}
 }
 .hero_info {
 	margin-bottom: 6rem;
@@ -34,6 +53,14 @@
 		align-items: center;
 		&:not(:last-child) {
 			margin-bottom: 1.5rem;
+		}
+	}
+	@include bp(480px) {
+		li {
+			display: -webkit-box;
+		}	
+		p {
+			font-size: 1.6rem;
 		}
 	}
 }
@@ -46,6 +73,10 @@
 	justify-content: center;
 	border-radius: 100%;
 	margin-right: 2rem;
+	img {
+		width: 2.2rem;
+		height: 2.2rem;
+	}
 }
 .icon {
 }
@@ -60,8 +91,39 @@
 .hero_txt_w {
 }
 .hero_txt {
+	position: relative;
 	margin-bottom: 4rem;
 	max-width: 53.8rem;
+	@include bp(480px) {
+		p {
+			font-size: 2rem;
+		}	
+	}
+}
+.hero_main_right {
+	position: absolute;
+	bottom: 26rem;
+	right: 35rem;
+	display: flex;
+	align-items: flex-end;
+	@include bp(1366px) {
+		bottom: 25rem;
+		right: 15rem;
+	}
+	@include bp(1024px) {
+		display: none;
+	}
+}
+.hero_main_right_img {
+	width: 4rem;
+	height: 7rem;
+	margin-right: 1rem;
+} 
+.hero_main_right_txt {
+	p {
+		font-size: 2rem;
+		font-family: $font_2;
+	}
 }
 .hero_txt_btn {
 	display: flex;
@@ -78,12 +140,23 @@
 		&:hover {
 			background: #FFC42B;
 		}
+		@include bp(1024px) {
+			p {
+				font-size: 2rem;
+			}
+		} 
+	}
+	@include bp(480px) {
+		justify-content: center;	
 	}
 }
 .hero_txt_btn_img {
 	margin-right: 3rem;
 	width: 10.1rem;
 	height: 4rem;
+	@include bp(480px) {
+		display: none;	
+	}
 }
 .icon-camera {
 	margin-right: 1rem;
@@ -99,12 +172,27 @@
 	}
 }
 .hero_main_bottom_info {
+	@include bp(820px) {
+		p {
+			font-size: 1.6rem;
+		}
+	}
 }
 .hero_main_bottom_list {
 	ul {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(23%, 1fr));
 		grid-gap: 0 3.2rem;
+		@include bp(1024px) {
+			grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));
+		}
+		@include bp(820px) {
+			grid-template-columns: repeat(auto-fill, minmax(21%, 1fr));
+		} 
+		@include bp(480px) {
+			grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+			grid-gap: 3rem 3rem;
+		}
 	}
 	li {
 		display: flex;
@@ -118,27 +206,59 @@
 	margin-bottom: 3rem;
 	width: 10rem;
 	height: 10rem;
+	img {
+		width: 6rem;
+		height: 6rem;
+	}
 	@include flex-center;
 	background: $yellow;
 	border-radius: 100%;
+	@include bp(820px) {
+		width: 7rem;
+		height: 7rem;
+	}
+	@include bp(768px) {
+		img {
+			width: 3rem;
+			height: 3rem;
+		}
+	}
 }
 .icon-tape-measure {
+	@include bp(820px) {
+		font-size: 3rem;
+	}
 }
 .icon-car {
+	@include bp(820px) {
+		font-size: 3rem;
+	}
 }
 .icon-sack {
+	@include bp(820px) {
+		font-size: 3rem;
+	}
 }
 .icon-file {
+	@include bp(820px) {
+		font-size: 3rem;
+	}
 }
 .services {
 }
 .services_main {
 	padding: 15rem 0 20rem 0;
+	@include bp(768px) {
+		padding: 8rem 0 13rem 0;
+	}
 }
 .services_main_top {
 }
 .services_head {
 	margin-bottom: 8rem;
+	@include bp(768px) {
+		margin-bottom: 4rem;
+	}
 }
 .services_list {
 	margin-bottom: 10rem;
@@ -148,7 +268,6 @@
 		grid-gap: 0 3rem;
 	}
 	li {
-		width: 42rem;
 		position: relative;
 	}
 	button {
@@ -158,6 +277,26 @@
 			font-size: 4.7rem;
 			color: $white;
 			font-size: $font_3;
+		}
+	}
+	@include bp(1024px) {
+		button {
+			p {
+				font-size: 3rem;
+			}	
+		}
+	}
+	@include bp(820px) {
+		ul {
+			grid-gap: 3rem 3rem;
+		}
+	}
+	@include bp(768px) {
+		margin-bottom: 5rem;
+	}
+	@include bp(480px) {
+		ul {
+			grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));		
 		}
 	}
 }
@@ -177,6 +316,9 @@
 		font-family: $font_3;
 		color: $white;
 	}
+	@include bp(1024px) {
+
+	}
 }
 .services_list_img {
 }
@@ -189,6 +331,15 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 3.2rem 3rem 3.2rem 3.5rem;
+	@include bp(1024px) {
+		padding: 2rem 1.5rem 2rem 1.5rem;
+	}
+	@include bp(768px) {
+		padding: 3rem 1.5rem 2rem 1.5rem;
+	}
+	@include bp(480px) {
+		padding: 3rem 1.5rem 3rem 1.5rem;		
+	}
 }
 .services_bottom_price {
 	span {
@@ -196,12 +347,20 @@
 		font-size: 2.4rem;
 		font-family: $font_3;
 	}
+	@include bp(1024px) {
+		span {
+			font-size: 2rem;
+		}	
+	}
 }
 .services_bottom_img {
 	color: $white;
 }
 .icon-arrow {
 	color: $white;
+	@include bp(1024px) {
+		font-size: 3rem;
+	}
 }
 .services_main_bottom {
 }
@@ -223,6 +382,12 @@
 		font-family: $font_1;
 		margin-right: 1rem;
 	}
+	@include bp(480px) {
+		padding: 3rem;
+		p {
+			font-size: 1.6rem;
+		}	
+	} 
 }
 .icon-arrowbottom {
 	color: $yellow;
@@ -258,12 +423,30 @@
 				}
 				.name {
 					padding: 2.3rem 0 2.3rem 5rem;
+					@include bp(480px) {
+						padding: 2rem 0 2rem 1rem;
+						p {
+							font-size: 1.4rem;
+						}
+					}
 				}
 				.price {
 					text-align: center;
+					@include bp(480px) {
+						padding: 2rem 0 2rem 1rem;
+						p {
+							font-size: 1.4rem;
+						}
+					}
 				}
 				.dimension {
 					text-align: center;
+					@include bp(480px) {
+						padding: 2rem 0 2rem 1rem;
+						p {
+							font-size: 1.4rem;
+						}
+					}
 				}
 			}
 		}
@@ -295,6 +478,22 @@
 						font-weight: 400;
 						border-bottom: .1rem solid #D47F00;
 					}
+					@include bp(820px) {
+						padding: 2rem 0 2rem 3rem;
+						button {
+							font-size: 1.6rem;
+						}
+					}
+					@include bp(768px) {
+						padding: 2rem 0 2rem 1rem;
+					}
+					@include bp(480px) {
+						padding: 2rem 0 2rem 0;
+						button {
+							font-size: 1.2rem;
+							border-bottom: none;
+						}
+					}
 				}
 				.price {
 					text-align: center;
@@ -302,6 +501,15 @@
 						font-size: 2rem;
 						font-family: $font_1;
 						font-weight: 400;
+						@include bp(820px) {
+							font-size: 1.8rem;
+						}
+					}
+					@include bp(480px) {
+						padding: 2rem 0 2rem 1rem;
+						p {
+							font-size: 1.6rem;
+						}
 					}
 				}
 				.dimension {
@@ -310,6 +518,15 @@
 						font-size: 2rem;
 						font-family: $font_1;
 						font-weight: 400;
+						@include bp(820px) {
+							font-size: 1.8rem;
+						}
+					}
+				}
+				@include bp(480px) {
+					padding: 2rem 0 2rem 1rem;
+					p {
+						font-size: 1.6rem;
 					}
 				}
 			}
@@ -320,9 +537,15 @@
 	position: relative;
 	background: $lightgrey;
 	margin-bottom: 15rem;
+	@include bp(1024px) {
+		margin-bottom: 8rem;	
+	}
 }
 .about_main {
 	padding: 16.6rem 0 10rem 0;
+	@include bp(1024px) {
+		padding: 10rem 0 8rem 0;	
+	}
 }
 .about_left {
 }
@@ -339,6 +562,24 @@
 		font-size: 4.7rem;
 		font-family: $font_3;
 		color: $white;
+		@include bp(1620px) {
+			font-size: 4rem;
+		}
+	}
+	@include bp(1024px) {
+		width: 100rem;	
+		text-align: left;
+		h2 {
+			font-size: 3rem;
+		}
+		padding: 3rem 0 3rem 5rem;
+	}
+	@include bp(480px) {
+		padding: 3rem 0 3rem 2rem;
+		width: 38rem;
+		h2 {
+			font-size: 2.8rem;
+		}
 	}
 }
 .about_left_info {
@@ -350,6 +591,12 @@
 		font-size: 2.4rem;
 		font-family: $font_3;
 	}
+	@include bp(480px) {
+		margin-bottom: 2rem;
+		p {
+			font-size: 2rem;
+		}	
+	}
 }
 .about_left_info_second {
 	max-width: 64rem;
@@ -360,6 +607,9 @@
 	}
 	span {
 		font-family: $font_2;
+	}
+	@include bp(480px) {
+		margin-bottom: 2rem;	
 	}
 }
 .about_left_info_third {
@@ -386,12 +636,31 @@
 		&:hover {
 			background: #FFC42B;
 		}
+		@include bp(1024px) {
+			p {
+				font-size: 2rem;
+			}
+		}
+	}
+	@include bp(480px) {
+		display: flex;
+		justify-content: center;	
+		p {
+			font-size: 1.6rem;
+		}
 	}
 }
 .about_right {
 	position: absolute;
 	top: 0;
 	right: 0;
+	@include bp(1366px) {
+		right: -14rem;
+		max-width: 56.4%;
+	}
+	@include bp(1024px) {
+		display: none;	
+	}
 }
 .advantages { 
 	position: relative;
@@ -407,12 +676,20 @@
 		font-size: 4.7rem;
 		font-family: $font_3;
 	}
+	@include bp(480px) {
+		h2 {
+			font-size: 3rem;
+		}	
+	}
 }
 .advantages_left_img {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 50%;
+	@include bp(1024px) {
+		display: none;	
+	}
 }
 .advantages_right {
 	position: absolute;
@@ -422,6 +699,17 @@
 	padding: 8rem 0 8rem 10rem;
 	background: $black;
 	border-radius: 3rem 0 0 0;
+	@include bp(1024px) {
+		border-radius: 0;
+		bottom: -15rem;	
+		width: 100%;
+	}
+	@include bp(820px) {
+		padding: 8rem 0 8rem 4rem;
+	}
+	@include bp(480px) {
+		padding: 6rem 0 6rem 2rem;	
+	}
 }
 .advantages_right_list {
 	p {
@@ -436,6 +724,14 @@
 			margin-bottom: 3.5rem;
 		}
 	}
+	@include bp(480px) {
+		p {
+			font-size: 1.6rem;
+		}	
+		li {
+			display: -webkit-box;
+		}
+	}
 }
 .advantages_icon {
 	color: rgba(168, 81, 0, 1);
@@ -445,11 +741,18 @@
 	background: rgba(255, 184, 2, 1);
 	border-radius: 100%;
 	margin-right: 3rem;
+	img {
+		width: 3.2rem;
+		height: 3.2rem;
+	}
 }
 .icon-calendar {
 }
 .advantages_txt {
 	max-width: 36rem;
+	@include bp(480px) {
+		max-width: 24rem;	
+	}
 }
 .icon-drill {
 }
@@ -471,11 +774,14 @@
 		background: url('../../i/salebg.png') center/cover no-repeat;
 		z-index: -1;
 	}
+	@include bp(1024px) {
+		margin-top: 15rem;	
+	}
 }
 .sale_main {
 	padding: 9rem 0 10rem 0;
 	display: flex;
-	p {
+	span {
 		position: absolute;
 		bottom: 0;
 		padding: 1rem 1.2rem 22.9rem 1.2rem;
@@ -485,13 +791,29 @@
 		font-family: $font_4;
 		font-weight: 900;
 	}
+	@include bp(480px) {
+		span {
+			&:first-child {
+				display: none;	
+			}
+		}
+	}
 }
 .sale_left {
 	margin-left: 11.3rem;
+	@include bp(480px) {
+		margin-left: 0;	
+	}
 }
 .sale_head {
 	max-width: 74rem;
 	margin-bottom: 3rem;
+	@include bp(480px) {
+		max-width: none;	
+		h2 {
+			font-size: 3rem;
+		}
+	}
 }
 .sale_txt {
 	max-width: 47.5rem;
@@ -517,7 +839,14 @@
 		height: .1rem;
 		background: $yellow;
 		bottom: 10rem;
-
+	}
+	@include bp(480px) {
+		padding: 8rem 0 10rem 0;	
+	}
+	@include bp(480px) {
+		&:before {
+			bottom: 5rem;
+		}	
 	}
 }
 .know_head {
@@ -531,18 +860,28 @@
 }
 .know_slider {
 	overflow: hidden;
-	padding-top: 14rem;
+	padding-top: 8rem;
+	@include bp(820px) {
+		padding-top: 4rem;
+	}
 }
 .slide_custom {
 	display: flex;
 	align-items: center;
 }
 .swiper-wrapper {
+	height: auto!important;
 }
 .swiper-slide {
 }
 .swiper-slide_left {
 	margin-right: 14.2rem;
+	@include bp(820px) {
+		margin-right: 4rem;
+	}
+	@include bp(480px) {
+		display: none;	
+	}
 }
 .swiper-slide_step {
 	margin-bottom: 3rem;
@@ -572,7 +911,6 @@
 	font-size: 3.2rem;
 	color: rgba(255, 255, 255, 1);
 	opacity: .5;
-	// background: rgba(0,0,0,0.2);
 	border-radius: 0!important;
 	background: transparent!important;
 	margin: 0!important;
@@ -582,7 +920,6 @@
 	align-items: center;
 	justify-content: center;
 	padding: 1rem 4rem;
-
 	&:first-child {
 		&:before {
 			clip-path: polygon(90% 0, 100% 50%, 90% 100%, 0 100%, 0% 50%, 0 0);
@@ -610,11 +947,28 @@
 		background-color: #32363A;
 		z-index: -1;
 	}
+	@include bp(1620px) {
+		width: 24rem!important;
+	}
+	@include bp(1024px) {
+		width: 18rem!important;	
+	}
+	@include bp(820px) {
+		width: 14rem!important;
+		font-size: 2rem;
+		height: 5rem!important;
+	}
+	@include bp(768px) {
+		width: 13rem!important;	
+	}
+	@include bp(480px) {
+		padding: 1rem 2rem;	
+		width: 6rem!important;
+	}
 }
 
 .swiper-pagination-bullet-active {
 	color: $white;
-	// background: linear-gradient(90deg, #FF9A02 0%, #FFBE17 100%)!important;
 }
 .instrument {
 }
@@ -623,6 +977,9 @@
 }
 .instrument_head {
 	margin-bottom: 8rem;
+	@include bp(480px) {
+		margin-bottom: 4rem;	
+	}
 }
 .instrument_list {
 	li {
@@ -664,10 +1021,22 @@
 		&:not(:last-child) {
 			margin-bottom: 3rem;
 		}
-	 }
+		@include bp(1024px) {
+			padding: 4rem 5rem 0 5rem ;
+		}
+		@include bp(820px) {
+			padding: 4rem 5rem;
+		}
+		@include bp(480px) {
+			padding: 2rem 3rem;
+		}
+	}
 }
 .instument_list_left {
 	max-width: 52.3rem;
+	@include bp(1024px) {
+		max-width: 40rem;	
+	}
 }
 .instrument_list_head {
 	margin-bottom: 2rem;
@@ -675,14 +1044,30 @@
 		font-size: 2.4rem;
 		font-family: $font_3;
 	}
+	@include bp(1024px) {
+		p {
+			font-size: 2rem;
+		}	
+	}
 }
 .instrument_list_info {
 	p {
 		font-size: 2rem;
 		font-family: $font_1;
 	}
+	@include bp(1024px) {
+		p {
+			font-size: 1.6rem;
+		}	
+	}
 }
 .instrument_list_right {
+	@include bp(820px) {
+		max-width: 30%;
+	}
+	@include bp(480px) {
+		display: none;
+	} 
 }
 .contacts {
 	position: relative;
@@ -697,6 +1082,9 @@
 }
 .contacts_main {
 	padding: 10rem 0;
+	@include bp(480px) {
+		padding: 6rem 0;	
+	}
 }
 .contacts_main_left {
 }
@@ -706,6 +1094,15 @@
 		font-size: 4.7rem;
 		font-family: $font_3;
 		color: $white;
+		@include bp(1620px) {
+			font-size: 4rem;
+		}
+		@include bp(1024px) {
+			font-size: 3rem;
+		}
+		@include bp(480px) {
+			font-size: 2.8rem;
+		}
 	}
 }
 .contacts_list {
@@ -718,6 +1115,9 @@
 		color: $white;
 		font-size: 2.4rem;
 		font-family: $font_3;
+		@include bp(1024px) {
+			font-size: 2rem;
+		}
 	}
 	&:not(:last-child) {
 		margin-bottom: 3rem;
@@ -744,6 +1144,9 @@
 		font-size: 2.4rem;
 		font-family: $font_3;
 		border-bottom: .1rem solid $white;
+		@include bp(1024px) {
+			font-size: 2rem;
+		}
 	}
 }
 .contacts_mail_img {
@@ -766,6 +1169,9 @@
 		font-size: 2.4rem;
 		font-family: $font_3;
 		color: $white;
+		@include bp(1024px) {
+			font-size: 2rem;
+		}
 	}
 }
 .contacts_btn {
@@ -779,11 +1185,31 @@
 			transition: all .3s ease;
 			&:hover {
 				background: #FFC42B;
-			}
+		}
+			@include bp(1024px) {
+				font-size: 2rem;
+		}
+	}
+	@include bp(480px) {
+		button {
+			font-size: 1.6rem;
+		}
+		display: flex;
+		justify-content: center;
 	}
 }
 .contacts_main_right {
 	position: absolute;
 	top: -5.3rem;
 	right: 23rem;
+	@include bp(1366px) {
+		top: -12rem;
+		right: 12rem;
+	}
+	@include bp(1280px) {
+		max-width: 44%;
+	}
+	@include bp(1024px) {
+		display: none;	
+	}
 }

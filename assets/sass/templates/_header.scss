@@ -14,6 +14,9 @@
 }
 .header_logo {
 	margin-right: 15.6rem;
+	@include bp(1280px) {
+		max-width: 28rem;
+	}
 }
 .header_menu {
 	ul {
@@ -30,6 +33,19 @@
 		font-family: $font_3;
 		color: $white;
 		@include accent-link;
+	}
+	@include bp(1620px) {
+		a {
+			font-size: 2.2rem;
+		}
+	}
+	@include bp(1366px) {
+		a {
+			font-size: 2rem;
+		}
+	}
+	@include bp(1024px) {
+		display: none;
 	}
 }
 .burger_trigger {
@@ -60,6 +76,9 @@
 			bottom: 0;
 			width: 100%;
 		}
+	}
+	@include bp(480px) {
+		width: 5rem;
 	}
 }
 .trigger {

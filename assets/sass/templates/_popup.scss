@@ -34,6 +34,15 @@
 	background: var(--50-b, #F8FAFC);
 	position: relative;
 	max-width: 132rem;
+	@include bp(1024px) {
+		max-width: 70rem;
+		h3 {
+			font-size: 2.4rem;
+		}
+	}
+	@include bp(480px) {
+		max-width: 34rem;	
+	}
 }
 .popup_close {
 	position: absolute;
@@ -46,12 +55,27 @@
 .icon {
 }
 .icon-close {
+	@include bp(480px) {
+		font-size: 3rem!important;
+	}
 }
 .popup_form_right {
 	padding: 6rem 7rem;
+	@include bp(1024px) {
+		padding: 3rem 7rem;
+	}
+	@include bp(480px) {
+		padding: 3rem;	
+	}
 }
 .popup_form_info {
 	margin-bottom: 8.6rem;
+	@include bp(1024px) {
+		margin-bottom: 4rem;
+	}
+	@include bp(480px) {
+		margin-bottom: 2rem;	
+	}
 }
 .popup_form_head {
 	margin-bottom: 3rem;
@@ -59,12 +83,28 @@
 		font-family: $font_3;
 		font-size: 3.2rem;
 	}
+	@include bp(1024px) {
+		h3 {
+			font-size: 2.4rem;
+		}
+	}
+	@include bp(480px) {
+		margin-bottom: 2rem;	
+	}
 }
 .popup_form_txt {
 	margin-bottom: 3rem;
 	p {
 		font-size: 2rem;
 		font-family: $font_1;
+	}
+	@include bp(1024px) {
+		p {
+			font-size: 1.8rem;
+		}
+	}
+	@include bp(480px) {
+		margin-bottom: 2rem;	
 	}
 }
 .popup_form_price {
@@ -75,12 +115,20 @@
 	p {
 		margin-right: .5rem;
 	}
+	@include bp(1024px) {
+		font-size: 1.8rem;
+	}
 }
 .popup_form_head_sec  {
 	margin-bottom: 3rem;
 	p {
 		font-size: 2.4rem;
 		font-family: $font_3;
+	}
+	@include bp(480px) {
+		p {
+			font-size: 1.8rem
+		}	
 	}
 }
 .popup_form {
@@ -93,6 +141,10 @@
 		width: 100%;
 		margin-bottom: 1.5rem;
 		font-size: 2rem;
+		@include bp(1024px) {
+			padding: 1.5rem 0 1.5rem 2.5rem;
+			font-size: 1.6rem;
+		}
 	}
 }
 .popup_form_btn {
@@ -108,6 +160,12 @@
 		background: $yellow;
 		border: .1rem solid #DBEAFE;
 		cursor: pointer;
+		@include bp(1024px) {
+			padding: 1.5rem;
+			font-size: 1.6rem;
+		}
+		@include bp(480px) {
+		}
 	}
 }
 .popup_policy {
@@ -117,11 +175,18 @@
 	a {
 		color: #BFBFBF;
 	}
+	@include bp(480px) {
+		font-size: 1.2rem;
+		text-align: center;	
+	}
 }
 .popup_form_left {
 	img {
 		width: auto;
 		height: 100%;
+	}
+	@include bp(1024px) {
+		display: none;
 	}
 }
 
@@ -134,12 +199,28 @@
 	position: relative;
 	max-width: 70rem;
 	padding: 8rem 10rem;
+	@include bp(1024px) {
+		padding: 2rem 10rem;
+	}
+	@include bp(820px) {
+		padding: 8rem 10rem;
+	}
+	@include bp(480px) {
+		padding: 3rem;
+		max-width: 34rem;	
+	}
 }
 .popup_form_head_foto {
 	margin-bottom: 5rem;
 	h3 {
 		font-size: 3rem;
 		font-family: $font_3;
+	}
+	@include bp(480px) {
+		margin-bottom: 3rem;
+		h3 {
+			font-size: 2rem;
+		}	
 	}
 }
 .popup_form_file {
@@ -150,6 +231,14 @@
 	p {
 		font-size: 2rem;
 		font-family: $font_1;
+	}
+	@include bp(480px) {
+		flex-direction: column;
+		margin: 2rem 0;
+		p {
+			margin-bottom: 2rem;
+			font-size: 1.8rem;
+		}
 	}
 }
 .popup_form_file_btn {
@@ -186,6 +275,12 @@
 		background: $yellow;
 		border: .1rem solid #DBEAFE;
 		cursor: pointer;
+		@include bp(1024px) {
+			padding: 1.5rem;
+			font-size: 1.6rem;
+		}
+		@include bp(480px) {
+		}
 	}
 }
 
@@ -247,7 +342,7 @@
 }
 .popup_logo {
 	margin-bottom: 4rem;
-	width: 50%;
+	width: 75%;
 }
 .popup_menu_main {
 }
