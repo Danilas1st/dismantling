@@ -11,6 +11,9 @@
 	align-items: center;
 	justify-content: space-between;
 	padding-top: 7rem;
+	@include bp(480px) {
+		padding-top: 3rem;
+	}
 }
 .header_logo {
 	margin-right: 15.6rem;
